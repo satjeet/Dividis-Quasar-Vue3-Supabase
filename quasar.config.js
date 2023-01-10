@@ -9,6 +9,7 @@
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
 
 const { configure } = require('quasar/wrappers');
+const { supabase } = require('src/boot/supabase');
 
 module.exports = configure(function (/* ctx */) {
   return {
@@ -27,7 +28,7 @@ module.exports = configure(function (/* ctx */) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli/boot-files
-    boot: [],
+    boot: ['supabase.js'],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: ['app.scss'],
@@ -85,7 +86,21 @@ module.exports = configure(function (/* ctx */) {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework
     framework: {
-      config: {},
+      config: {
+        brand: {
+          primary: '#4d19d1',
+          secondary: '#26A69A',
+          accent: '#9C27B0',
+
+          dark: '#1d1d1d',
+          'dark-page': '#121212',
+
+          positive: '#21BA45',
+          negative: '#C10015',
+          info: '#31CCEC',
+          warning: '#F2C037',
+        },
+      },
 
       // iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack
